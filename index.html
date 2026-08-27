@@ -26,17 +26,17 @@
      1. 색상 테마 (여기 값만 바꾸면 전체 사이트 색감이 바뀜)
      ============================================================ */
   :root{
-    --bg-darkest:   #050f0c;   /* 가장 어두운 배경 */
-    --bg-dark:      #0a1c16;   /* 기본 배경(어두운 그린) */
-    --bg-dark-2:    #0d241c;   /* 카드/섹션 배경 */
-    --neon-green:   #3dffb0;   /* 포인트 네온 그린 */
-    --neon-purple:  #b16bff;   /* 포인트 네온 퍼플 */
-    --grad-purple-1:#7b2ff7;   /* 버튼 그라데이션 시작색 */
-    --grad-purple-2:#c14bff;   /* 버튼 그라데이션 끝색 */
-    --text-main:    #eafff6;   /* 기본 텍스트 색 */
-    --text-muted:   #9db8ac;   /* 흐린 텍스트 색 */
-    --card-bg:      rgba(255,255,255,0.035);
-    --card-border:  rgba(178,255,214,0.14);
+    --bg-darkest:   #ffffff;   /* 가장 밝은 배경(흰색) */
+    --bg-dark:      #f6f8fc;   /* 기본 배경(아주 밝은 블루그레이) */
+    --bg-dark-2:    #ffffff;   /* 카드/섹션 배경(흰색) */
+    --neon-green:   #2f6feb;   /* 포인트 블루 */
+    --neon-purple:  #7c5cff;   /* 포인트 바이올렛 */
+    --grad-purple-1:#2f6feb;   /* 버튼 그라데이션 시작색 */
+    --grad-purple-2:#7c5cff;   /* 버튼 그라데이션 끝색 */
+    --text-main:    #1a2233;   /* 기본 텍스트 색(짙은 네이비) */
+    --text-muted:   #5b6472;   /* 흐린 텍스트 색 */
+    --card-bg:      rgba(15,23,42,0.035);
+    --card-border:  rgba(15,23,42,0.09);
   }
   /* ============================================================
      2. 공통 스타일 리셋
@@ -53,17 +53,6 @@
     overflow-x: hidden;
   }
   /* 은은한 네온 빛이 배경에 떠다니는 느낌을 주는 고정 레이어 */
-  body::before{
-    content:"";
-    position: fixed;
-    inset: 0;
-    background:
-      radial-gradient(circle at 15% 20%, rgba(59,255,176,0.10), transparent 40%),
-      radial-gradient(circle at 85% 15%, rgba(177,107,255,0.12), transparent 40%),
-      radial-gradient(circle at 50% 90%, rgba(123,47,247,0.10), transparent 45%);
-    pointer-events: none;
-    z-index: 0;
-  }
   section{ position: relative; z-index: 1; }
   a{ color: inherit; text-decoration: none; }
   ul{ list-style: none; }
@@ -80,7 +69,6 @@
     color: var(--neon-green);
     text-transform: uppercase;
     margin-bottom: 10px;
-    text-shadow: 0 0 12px rgba(61,255,176,0.6);
   }
   .section-title{
     font-size: clamp(1.6rem, 4vw, 2.4rem);
@@ -104,10 +92,10 @@
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 100;
-    background: rgba(5, 15, 12, 0.7);
+    background: rgba(255,255,255,0.75);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-    border-bottom: 1px solid rgba(61,255,176,0.12);
+    border-bottom: 1px solid rgba(47,111,235,0.10);
   }
   .nav-inner{
     max-width: 1100px;
@@ -122,7 +110,6 @@
     font-size: 1.15rem;
     letter-spacing: 1px;
     color: var(--text-main);
-    text-shadow: 0 0 14px rgba(177,107,255,0.5);
   }
   .logo span{ color: var(--neon-green); }
   .nav-links{
@@ -138,7 +125,6 @@
   }
   .nav-links a:hover{
     color: var(--text-main);
-    text-shadow: 0 0 10px rgba(61,255,176,0.7);
   }
   .nav-links a::after{
     content:"";
@@ -183,9 +169,9 @@
     border-radius: 50%;
     display:flex; align-items:center; justify-content:center;
     font-size: 1.25rem; font-weight:700; letter-spacing: 0.5px;
-    background: linear-gradient(135deg, rgba(61,255,176,0.25), rgba(177,107,255,0.25));
+    background: linear-gradient(135deg, rgba(47,111,235,0.18), rgba(124,92,255,0.18));
     border: 1px solid var(--card-border);
-    box-shadow: 0 0 40px rgba(177,107,255,0.35), 0 0 20px rgba(61,255,176,0.2) inset;
+    box-shadow: 0 0 40px rgba(124,92,255,0.20), 0 0 20px rgba(47,111,235,0.15) inset;
     color: var(--text-main);
   }
   .hero-greeting{
@@ -194,17 +180,12 @@
     letter-spacing: 3px;
     text-transform: uppercase;
     margin-bottom: 18px;
-    text-shadow: 0 0 12px rgba(61,255,176,0.6);
   }
   .hero h1{
     font-size: clamp(2.4rem, 7vw, 4rem);
     font-weight: 800;
     margin-bottom: 14px;
-    background: linear-gradient(120deg, #eafff6 30%, var(--neon-green) 60%, var(--neon-purple) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    text-shadow: 0 0 40px rgba(61,255,176,0.15);
+    color: var(--text-main);
   }
   .hero .role{
     font-size: clamp(1.05rem, 2.4vw, 1.35rem);
@@ -239,21 +220,21 @@
   .btn-primary{
     background: linear-gradient(135deg, var(--grad-purple-1), var(--grad-purple-2));
     color: #fff;
-    box-shadow: 0 0 22px rgba(177,107,255,0.45);
+    box-shadow: 0 0 22px rgba(124,92,255,0.25);
   }
   .btn-primary:hover{
     transform: translateY(-3px);
-    box-shadow: 0 0 34px rgba(177,107,255,0.75);
+    box-shadow: 0 0 34px rgba(124,92,255,0.35);
   }
   .btn-outline{
     background: transparent;
     color: var(--text-main);
-    border-color: rgba(61,255,176,0.5);
+    border-color: rgba(47,111,235,0.30);
   }
   .btn-outline:hover{
     transform: translateY(-3px);
-    background: rgba(61,255,176,0.08);
-    box-shadow: 0 0 22px rgba(61,255,176,0.35);
+    background: rgba(47,111,235,0.06);
+    box-shadow: 0 0 22px rgba(47,111,235,0.20);
   }
   /* ============================================================
      5. About (자기소개)
@@ -303,7 +284,7 @@
     margin-top: 7px;
     border-radius: 50%;
     background: var(--neon-green);
-    box-shadow: 0 0 8px rgba(61,255,176,0.8);
+    box-shadow: 0 0 8px rgba(47,111,235,0.35);
   }
   .about-list .item-title{
     color: var(--text-main);
@@ -331,7 +312,6 @@
     font-size: 1.8rem;
     font-weight: 800;
     color: var(--neon-purple);
-    text-shadow: 0 0 18px rgba(177,107,255,0.5);
   }
   .stat-box .label{
     font-size: 0.85rem;
@@ -348,8 +328,8 @@
   }
   a.stat-box-link:hover{
     transform: translateY(-4px);
-    border-color: rgba(177,107,255,0.5);
-    box-shadow: 0 0 22px rgba(177,107,255,0.25);
+    border-color: rgba(124,92,255,0.30);
+    box-shadow: 0 0 22px rgba(124,92,255,0.18);
   }
   /* ============================================================
      6. 경력 (Experience) - 카드 + 호버 인터랙션
@@ -376,8 +356,8 @@
   /* 마우스를 올리면 카드가 살짝 떠오르며 네온 빛이 감도는 효과 */
   .exp-card:hover{
     transform: translateY(-8px) scale(1.015);
-    border-color: rgba(61,255,176,0.5);
-    box-shadow: 0 18px 40px rgba(0,0,0,0.4), 0 0 26px rgba(61,255,176,0.25);
+    border-color: rgba(47,111,235,0.30);
+    box-shadow: 0 12px 28px rgba(15,23,42,0.10), 0 0 18px rgba(47,111,235,0.12);
   }
   .exp-period{
     font-size: 0.82rem;
@@ -421,8 +401,8 @@
   }
   .skill-tag:hover{
     transform: translateY(-4px);
-    border-color: rgba(177,107,255,0.6);
-    box-shadow: 0 0 20px rgba(177,107,255,0.3);
+    border-color: rgba(124,92,255,0.35);
+    box-shadow: 0 0 20px rgba(124,92,255,0.18);
   }
   .skill-tag svg{ width:18px; height:18px; stroke: var(--neon-green); flex-shrink:0; }
   /* ============================================================
@@ -444,7 +424,7 @@
   }
   .project-card:hover{
     transform: translateY(-6px);
-    box-shadow: 0 20px 45px rgba(0,0,0,0.45), 0 0 24px rgba(61,255,176,0.2);
+    box-shadow: 0 14px 32px rgba(15,23,42,0.12), 0 0 18px rgba(47,111,235,0.12);
   }
   /* 프로젝트 대표 이미지 자리.
      - 지금은 실제 논문/발표자료에서 가져온 결과 그림(<img>)이 들어가 있음.
@@ -460,14 +440,14 @@
     padding: 8px;
     box-sizing: border-box;
     font-size: 0.85rem;
-    color: rgba(255,255,255,0.75);
+    color: rgba(15,23,42,0.55);
     letter-spacing: 1px;
     background: #f4f4f4;           /* 그림 여백을 밝은 회색으로 채워 원본 그림(흰 배경)과 자연스럽게 어울리게 함 */
   }
-  .project-img-1{ background: linear-gradient(135deg, #14392e, #3dffb0 130%); }
-  .project-img-2{ background: linear-gradient(135deg, #2c1653, #b16bff 130%); }
-  .project-img-3{ background: linear-gradient(135deg, #12212e, #4bd6ff 130%); }
-  .project-img-4{ background: linear-gradient(135deg, #1a1f3d, #6b7bff 130%); }
+  .project-img-1{ background: linear-gradient(135deg, #eaf1ff, #cfe0ff 130%); }
+  .project-img-2{ background: linear-gradient(135deg, #f1edff, #ded4ff 130%); }
+  .project-img-3{ background: linear-gradient(135deg, #eafcff, #cdf3ff 130%); }
+  .project-img-4{ background: linear-gradient(135deg, #eef0ff, #d6dbff 130%); }
   .project-body{ padding: 26px; }
   .project-body h3{ font-size: 1.1rem; margin-bottom: 10px; }
   .project-body p{
@@ -493,9 +473,9 @@
     font-size: 0.75rem;
     padding: 5px 12px;
     border-radius: 50px;
-    background: rgba(177,107,255,0.12);
+    background: rgba(124,92,255,0.10);
     color: var(--neon-purple);
-    border: 1px solid rgba(177,107,255,0.3);
+    border: 1px solid rgba(124,92,255,0.18);
   }
   /* ============================================================
      7-1. AI Lab (논문 번역·스터디 자동화 데모)
@@ -564,7 +544,7 @@
   .ai-lab-field select,
   .ai-lab-field textarea{
     width: 100%;
-    background: rgba(255,255,255,0.04);
+    background: rgba(15,23,42,0.035);
     border: 1px solid var(--card-border);
     border-radius: 10px;
     padding: 12px 14px;
@@ -578,8 +558,8 @@
   .ai-lab-field select:focus,
   .ai-lab-field textarea:focus{
     outline: none;
-    border-color: rgba(61,255,176,0.55);
-    box-shadow: 0 0 0 3px rgba(61,255,176,0.12);
+    border-color: rgba(47,111,235,0.30);
+    box-shadow: 0 0 0 3px rgba(47,111,235,0.10);
   }
   .ai-lab-hint{ font-size: 0.76rem; color: var(--text-muted); }
 
@@ -598,7 +578,7 @@
   .ai-lab-status.is-error{ color: #ff8a8a; }
 
   .ai-lab-output{
-    background: rgba(255,255,255,0.03);
+    background: rgba(15,23,42,0.03);
     border: 1px dashed var(--card-border);
     border-radius: 14px;
     padding: 16px;
@@ -664,8 +644,8 @@
   }
   .journal-card:hover{
     transform: translateY(-4px);
-    border-color: rgba(177,107,255,0.5);
-    box-shadow: 0 0 22px rgba(177,107,255,0.25);
+    border-color: rgba(124,92,255,0.30);
+    box-shadow: 0 0 22px rgba(124,92,255,0.18);
   }
   .journal-if{
     display:inline-block;
@@ -707,7 +687,6 @@
     margin-bottom: 18px;
     padding-bottom: 10px;
     border-bottom: 1px solid var(--card-border);
-    text-shadow: 0 0 10px rgba(61,255,176,0.35);
   }
   .paper-list{
     display:flex;
@@ -729,8 +708,8 @@
   }
   .paper-list li:hover{
     transform: translateY(-3px);
-    border-color: rgba(61,255,176,0.4);
-    box-shadow: 0 0 18px rgba(61,255,176,0.15);
+    border-color: rgba(47,111,235,0.20);
+    box-shadow: 0 0 18px rgba(47,111,235,0.10);
   }
   .paper-list li .dot{
     flex-shrink:0;
@@ -738,7 +717,7 @@
     margin-top: 8px;
     border-radius: 50%;
     background: var(--neon-purple);
-    box-shadow: 0 0 6px rgba(177,107,255,0.8);
+    box-shadow: 0 0 6px rgba(124,92,255,0.35);
   }
   .paper-list .paper-authors{ color: var(--text-main); font-weight: 600; }
   .paper-list em{ color: var(--text-main); font-style: italic; }
@@ -774,8 +753,8 @@
   }
   .contact-card:hover{
     transform: translateY(-5px);
-    box-shadow: 0 0 26px rgba(61,255,176,0.3);
-    border-color: rgba(61,255,176,0.5);
+    box-shadow: 0 0 26px rgba(47,111,235,0.18);
+    border-color: rgba(47,111,235,0.30);
   }
   .contact-card svg{ width:26px; height:26px; stroke: var(--neon-purple); flex-shrink:0; }
   .contact-card .c-label{ font-size:0.78rem; color: var(--text-muted); }
@@ -785,7 +764,7 @@
     padding: 28px 24px;
     color: var(--text-muted);
     font-size: 0.82rem;
-    border-top: 1px solid rgba(61,255,176,0.1);
+    border-top: 1px solid rgba(47,111,235,0.08);
   }
   /* ============================================================
      10-1. 카드 클릭 힌트 ("자세히 보기")
@@ -814,7 +793,7 @@
     position: fixed;
     inset: 0;
     z-index: 200;
-    background: rgba(4, 12, 9, 0.78);
+    background: rgba(15, 23, 42, 0.45);
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
     display:flex;
@@ -836,10 +815,10 @@
     max-height: 85vh;
     overflow-y: auto;
     background: linear-gradient(160deg, var(--bg-dark-2), var(--bg-darkest));
-    border: 1px solid rgba(61,255,176,0.3);
+    border: 1px solid rgba(47,111,235,0.18);
     border-radius: 22px;
     padding: 40px;
-    box-shadow: 0 0 60px rgba(61,255,176,0.15), 0 25px 60px rgba(0,0,0,0.6);
+    box-shadow: 0 0 40px rgba(47,111,235,0.08), 0 20px 45px rgba(15,23,42,0.16);
     transform: translateY(24px) scale(0.98);
     transition: transform 0.3s ease;
   }
@@ -852,7 +831,7 @@
     width: 36px; height: 36px;
     border-radius: 50%;
     border: 1px solid var(--card-border);
-    background: rgba(255,255,255,0.04);
+    background: rgba(15,23,42,0.04);
     color: var(--text-main);
     font-size: 1.1rem;
     line-height: 1;
@@ -921,7 +900,7 @@
     margin-top: 7px;
     border-radius: 50%;
     background: var(--neon-purple);
-    box-shadow: 0 0 6px rgba(177,107,255,0.8);
+    box-shadow: 0 0 6px rgba(124,92,255,0.35);
   }
   .modal-box .m-tech{
     display:flex;
@@ -952,11 +931,11 @@
       top: 62px; right: 0;
       flex-direction: column;
       gap: 0;
-      background: rgba(5,15,12,0.96);
+      background: rgba(255,255,255,0.98);
       backdrop-filter: blur(14px);
       width: 220px;
-      border-left: 1px solid rgba(61,255,176,0.15);
-      border-bottom: 1px solid rgba(61,255,176,0.15);
+      border-left: 1px solid rgba(47,111,235,0.10);
+      border-bottom: 1px solid rgba(47,111,235,0.10);
       transform: translateX(100%);
       transition: transform 0.35s ease;
     }
@@ -964,7 +943,7 @@
     .nav-links a{
       padding: 16px 24px;
       width: 100%;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(15,23,42,0.06);
     }
     .menu-toggle{ display:flex; }
   }
@@ -1032,7 +1011,7 @@
   <section id="about" class="about">
     <div class="container">
       <p class="section-label reveal">About</p>
-      <h2 class="section-title reveal">저를 소개함</h2>
+      <h2 class="section-title reveal">About Me</h2>
       <div class="about-grid">
         <div class="about-card reveal">
           <p class="about-lead">
@@ -1653,11 +1632,11 @@
           </div>
         </a>
         <!-- GitHub 주소 수정 위치: href="#" 를 실제 주소로, c-value 텍스트를 실제 주소로 바꾸면 됨 -->
-        <a class="contact-card" href="https://sdskim2227-as.github.io/portpolio/" target="_blank" rel="noopener">
+        <a class="contact-card" href="https://sdskim2227-as.github.io/portfolio/" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 00-1-2.6c3 0 6-2 6-5.5.1-1.3-.4-2.6-1.3-3.6.4-1.3.4-2.6 0-3.9 0 0-1.1-.3-3.5 1.3a12 12 0 00-6.4 0C7.5 2.7 6.4 3 6.4 3c-.4 1.3-.4 2.6 0 3.9A5.5 5.5 0 005 10.5c0 3.5 3 5.5 6 5.5-.4.3-.6.7-.8 1.2-.2.5-.2 1-.2 1.5V22"/></svg>
           <div>
             <div class="c-label">GitHub</div>
-            <div class="c-value">sdskim2227-as.github.io/portpolio</div>
+            <div class="c-value">sdskim2227-as.github.io/portfolio</div>
           </div>
         </a>
       </div>
